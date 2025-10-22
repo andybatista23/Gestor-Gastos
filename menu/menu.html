@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Gastos del Hogar</title>
+  <link rel="stylesheet" href="../menu/styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="logo-icon">💰</span>
+      <span>Gestor de Gastos</span>
+    </div>
+    <button id="menu-toggle">☰</button>
+    <nav id="menu">
+      <li onclick="mostrarSeccion('inicio')">
+        <span class="nav-icon">🏠</span>
+        <span>Inicio</span>
+      </li>
+      <li onclick="mostrarSeccion('gastos')">
+        <span class="nav-icon">💸</span>
+        <span>Gastos</span>
+      </li>
+      <li onclick="mostrarSeccion('reportes')">
+        <span class="nav-icon">📊</span>
+        <span>Reportes</span>
+      </li>
+      <li onclick="mostrarSeccion('configuracion')">
+        <span class="nav-icon">⚙️</span>
+        <span>Configuración</span>
+      </li>
+    </nav>
+  </header>
+
+  <!-- Sección Inicio -->
+  <div id="inicio" class="section active">
+    <h2>Resumen Financiero</h2>
+    <div class="stats-container">
+      <!-- Datos cargados dinámicamente desde la base de datos -->
+    </div>
+    <div class="cards-container">
+      <!-- Tarjetas de resumen se agregarán desde JS -->
+    </div>
+  </div>
+
+  <!-- Sección Gastos -->
+  <div id="gastos" class="section">
+    <h2>Gestión de Gastos</h2>
+    <div class="cards-container">
+      <!-- Formularios y lista de gastos se agregarán desde JS -->
+    </div>
+  </div>
+
+  <!-- Sección Reportes -->
+  <div id="reportes" class="section">
+    <h2>Reportes y Análisis</h2>
+    <div class="cards-container">
+      <!-- Gráficos y estadísticas cargadas desde JS -->
+    </div>
+  </div>
+
+  <!-- Sección Configuración -->
+  <div id="configuracion" class="section">
+    <h2>Configuración</h2>
+    <div class="cards-container">
+      <!-- Configuraciones se agregarán desde JS -->
+    </div>
+  </div>
+
+  <script src="../menu/menu.js"></script>
+</body>
+</html>
