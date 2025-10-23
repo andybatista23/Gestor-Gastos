@@ -3,71 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestor de Gastos del Hogar</title>
+  <title>Gestor de Finanzas</title>
   <link rel="stylesheet" href="../menu/styles.css">
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <span class="logo-icon">💰</span>
-      <span>Gestor de Gastos</span>
-    </div>
-    <button id="menu-toggle">☰</button>
-    <nav id="menu">
-      <li onclick="mostrarSeccion('inicio')">
-        <span class="nav-icon">🏠</span>
-        <span>Inicio</span>
-      </li>
-      <li onclick="mostrarSeccion('gastos')">
-        <span class="nav-icon">💸</span>
-        <span>Gastos</span>
-      </li>
-      <li onclick="mostrarSeccion('reportes')">
-        <span class="nav-icon">📊</span>
-        <span>Reportes</span>
-      </li>
-      <li onclick="mostrarSeccion('configuracion')">
-        <span class="nav-icon">⚙️</span>
-        <span>Configuración</span>
-      </li>
-    </nav>
-  </header>
+<header>
+  <div class="logo">💰 Mi Finanzas</div>
+  <button id="menu-toggle">☰</button>
+  <nav>
+    <ul>
+      <li data-seccion="inicio">🏠 Inicio</li>
+      <li data-seccion="gastos">💸 Gastos</li>
+      <li data-seccion="reportes">📊 Reportes</li>
+      <li data-seccion="configuracion">⚙️ Configuración</li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div id="mensaje" class="mensaje"></div>
 
   <!-- Sección Inicio -->
-  <div id="inicio" class="section active">
-    <h2>Resumen Financiero</h2>
-    <div class="stats-container">
-      <!-- Datos cargados dinámicamente desde la base de datos -->
-    </div>
-    <div class="cards-container">
-      <!-- Tarjetas de resumen se agregarán desde JS -->
-    </div>
-  </div>
+  <section id="inicio" class="section active">
+    <h2>📋 Resumen Financiero</h2>
+    <div id="statsContainer" class="stats-container"></div>
+    <div id="resumenRapido"></div>
+    <div id="ultimosGastos"></div>
+  </section>
 
   <!-- Sección Gastos -->
-  <div id="gastos" class="section">
-    <h2>Gestión de Gastos</h2>
-    <div class="cards-container">
-      <!-- Formularios y lista de gastos se agregarán desde JS -->
+  <section id="gastos" class="section">
+    <h2>💸 Gastos e Ingresos</h2>
+
+    <form id="gastoForm">
+      <input type="text" id="descripcion" placeholder="📝 Descripción" required>
+      <input type="number" id="monto" placeholder="💵 Monto" step="0.01" required>
+      <select id="tipo" required>
+        <option value="">Selecciona Tipo</option>
+        <option value="gasto">💸 Gasto</option>
+        <option value="ingreso">💰 Ingreso</option>
+      </select>
+      <select id="categoria" required>
+        <option value="">Selecciona Categoría</option>
+      </select>
+      <input type="date" id="fecha" required>
+      <button type="submit" id="guardarGastoBtn">💾 Guardar Movimiento</button>
+    </form>
+
+    <div class="agregar-categoria">
+      <input type="text" id="nuevaCategoria" placeholder="➕ Nueva Categoría">
+      <button id="agregarCategoriaBtn">Agregar Categoría</button>
     </div>
-  </div>
+
+    <div id="listaGastos"></div>
+  </section>
 
   <!-- Sección Reportes -->
-  <div id="reportes" class="section">
-    <h2>Reportes y Análisis</h2>
-    <div class="cards-container">
-      <!-- Gráficos y estadísticas cargadas desde JS -->
-    </div>
-  </div>
+  <section id="reportes" class="section">
+    <h2>📊 Reportes</h2>
+    <div id="reportesStats" class="stats-container"></div>
+    <canvas id="categoriasChart"></canvas>
+  </section>
 
   <!-- Sección Configuración -->
-  <div id="configuracion" class="section">
-    <h2>Configuración</h2>
-    <div class="cards-container">
-      <!-- Configuraciones se agregarán desde JS -->
+  <section id="configuracion" class="section">
+    <h2>⚙️ Configuración</h2>
+    
+    <div id="infoUsuario">
+      <p>📧 Email: <span id="userEmail"></span></p>
     </div>
-  </div>
 
-  <script src="../menu/menu.js"></script>
+    <div class="agregar-monedas">
+      <input type="number" id="nuevasMonedas" placeholder="💰 Agregar Monedas">
+      <button id="agregarMonedasBtn">Agregar</button>
+    </div>
+
+    <button id="logoutBtn">🚪 Cerrar Sesión</button>
+  </section>
+</main>
+
+  <script type="module" src="../menu/menu.js"></script>
 </body>
 </html>

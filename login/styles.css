@@ -180,3 +180,11 @@ button:hover {
  .password-container .eye svg {
    display: block;
  }
+ a{
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: 500;
+ }
